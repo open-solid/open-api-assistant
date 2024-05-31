@@ -5,6 +5,7 @@ namespace OpenSolid\OpenApiAssistant\Php\Builder;
 use OpenApi\Annotations\Schema;
 use OpenApi\Generator;
 use PhpParser\Node\Expr\ClassConstFetch;
+use PhpParser\Node\Name;
 use PhpParser\Node\NullableType;
 
 trait ClassBuilderTrait
@@ -27,7 +28,7 @@ trait ClassBuilderTrait
         }
 
         if (true === $schema->nullable) {
-            $type = new NullableType($type);
+            $type = new NullableType(new Name($type));
         }
 
         return $type;

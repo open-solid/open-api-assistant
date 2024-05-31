@@ -9,9 +9,9 @@ use OpenApi\Annotations\RequestBody;
 use OpenApi\Annotations\Response;
 use OpenApi\Annotations\Schema;
 use OpenApi\Generator;
-use OpenSolid\OpenApiAssistant\Php\Printer\StdPhpPrinter;
 use OpenSolid\OpenApiAssistant\Http\HttpRequestInterpreter;
 use PhpParser\BuilderFactory;
+use PhpParser\PrettyPrinter\Standard;
 
 readonly class OperationClassBuilder
 {
@@ -19,7 +19,7 @@ readonly class OperationClassBuilder
 
     private Inflector $inflector;
     private BuilderFactory $builder;
-    private StdPhpPrinter $printer;
+    private Standard $printer;
 
     public function __construct(
         private HttpRequestInterpreter $httpInterpreter,
@@ -28,7 +28,7 @@ readonly class OperationClassBuilder
     ) {
         $this->inflector = InflectorFactory::create()->build();
         $this->builder = new BuilderFactory();
-        $this->printer = new StdPhpPrinter();
+        $this->printer = new Standard(['shortArraySyntax' => true]);
     }
 
     public function build(string $namespace, Operation $operation, string $uri): string

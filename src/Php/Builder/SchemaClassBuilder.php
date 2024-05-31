@@ -5,10 +5,10 @@ namespace OpenSolid\OpenApiAssistant\Php\Builder;
 use OpenApi\Annotations\Property;
 use OpenApi\Annotations\Schema;
 use OpenApi\Generator;
-use OpenSolid\OpenApiAssistant\Php\Printer\StdPhpPrinter;
 use PhpParser\BuilderFactory;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Name;
+use PhpParser\PrettyPrinter\Standard;
 
 readonly class SchemaClassBuilder
 {
@@ -33,12 +33,12 @@ readonly class SchemaClassBuilder
     ];
 
     private BuilderFactory $builder;
-    private StdPhpPrinter $printer;
+    private Standard $printer;
 
     public function __construct()
     {
         $this->builder = new BuilderFactory();
-        $this->printer = new StdPhpPrinter();
+        $this->printer = new Standard(['shortArraySyntax' => true]);
     }
 
     public function build(string $namespace, Schema $schema): string
