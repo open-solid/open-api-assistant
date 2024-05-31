@@ -1,0 +1,33 @@
+{
+    "name": "open-solid/open-api-assistant",
+    "description": "Design-to-Code Assistant",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yonel Ceruto",
+            "email": "open@yceruto.dev"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "doctrine/inflector": "^2.0",
+        "nikic/php-parser": "^4.18"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenSolid\\OpenApiAssistant\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenSolid\\OpenApiAssistant\\": "tests/"
+        }
+    }
+}
