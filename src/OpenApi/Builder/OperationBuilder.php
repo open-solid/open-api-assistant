@@ -58,7 +58,7 @@ final readonly class OperationBuilder
 
         $this->buildResponse($method, $uri, $res ?? '', $openApi, $methodItem);
 
-        if (!$openApi->components->schemas) {
+        if (!Generator::isDefault($openApi->components) && !$openApi->components->schemas) {
             $openApi->components = Generator::UNDEFINED;
         }
     }
