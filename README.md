@@ -1,12 +1,14 @@
 # OpenApi Assistant
 
-OpenApi-to-Code building blocks' generator.
+OpenApi and Code building blocks' generator.
 
 ## Installation
 
 ```bash
-composer require --dev open-solid/open-api-assistant
+composer require open-solid/open-api-assistant
 ```
+
+Symfony integration: https://github.com/open-solid/open-api-assistant-bundle
 
 ## License
 
